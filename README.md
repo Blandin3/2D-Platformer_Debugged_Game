@@ -43,7 +43,7 @@ Multiple enemy types with unique behaviors:
 | Move Left | A / Left Arrow |
 | Move Right | D / Right Arrow |
 | Jump | Spacebar |
-| Shoot | (If enabled) |
+| Shoot | J |
 | Pause/Menu | ESC |
 
 ## 🛠️ Technical Details
