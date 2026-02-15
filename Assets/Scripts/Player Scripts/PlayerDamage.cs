@@ -11,7 +11,6 @@ public class PlayerDamage : MonoBehaviour {
 
 	private bool canDamage;
 	public GameManager gameManager;
-	public GameObject gameOverPanel;
 
 	void Awake () {
 		lifeText = GameObject.Find ("LifeText").GetComponent<Text> ();
@@ -37,9 +36,8 @@ public class PlayerDamage : MonoBehaviour {
             }
 
 			if (lifeScoreCount == 0) {
-				Time.timeScale = 0f;
                 lifeText.text = "x" + lifeScoreCount;
-                StartCoroutine(ShowGameOver());
+                StartCoroutine(LoadEndScene());
 			} 
 
 
@@ -54,11 +52,9 @@ public class PlayerDamage : MonoBehaviour {
 		canDamage = true;
 	}
 
-	IEnumerator ShowGameOver() {
-		yield return new WaitForSecondsRealtime(1f);
-		if (gameOverPanel != null) {
-			gameOverPanel.SetActive(true);
-		}
+	IEnumerator LoadEndScene() {
+		yield return new WaitForSeconds(0.5f);
+		SceneManager.LoadScene("EndScene");
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
